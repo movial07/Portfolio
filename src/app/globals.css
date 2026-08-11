@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+.font-comic {
+  font-family: var(--font-comic-neue), 'Comic Neue', 'Comic Sans MS', cursive, sans-serif;
+}
+
+.font-melody {
+  font-family: 'Melody Variable', 'Melody', var(--font-sans), sans-serif;
+}
+
+.stroke-text {
+  color: transparent;
+  -webkit-text-stroke: 2px #000000;
+}
+
+@theme {
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, monospace;
+  --font-doodle: var(--font-doodle), cursive;
+}
+
+body {
+  background-color: #ffffff;
+  color: #000000;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.font-doodle {
+  font-family: var(--font-doodle), cursive, sans-serif;
+}
+
+/* Lenis Smooth Scroll Styles (Match SoHub Studio) */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+/* Hide default native browser scrollbar so only 1 single scrollbar is visible */
+::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+html, body {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
