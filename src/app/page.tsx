@@ -8,28 +8,60 @@ import CountryLoop from '@/components/CountryLoop';
 import Reviews from '@/components/Reviews';
 import Contact from '@/components/Contact';
 import StrokeText from '@/components/StrokeText';
-import LogoLoop from '@/components/LogoLoop';
+import LogoLoop, { LogoItem } from '@/components/LogoLoop';
 
-const workedWithLogos = [
-  'emergent',
-  'matiks',
-  'simplilearn',
-  'wisprflow',
-  'saregama',
-  'superprofile',
-  'mirai',
-  'cursor',
-  'college vidya',
-  'polaris school of technology',
-  'slice bank',
-].map((name) => ({
-  node: (
-    <span className="px-6 py-3 rounded-full bg-neutral-900 border border-neutral-800 text-white font-mono text-xs sm:text-sm uppercase tracking-wider font-extrabold whitespace-nowrap shadow-lg hover:border-white hover:bg-neutral-800 transition-all cursor-pointer">
-      {name}
-    </span>
-  ),
-  title: name,
-}));
+const workedWithLogos: LogoItem[] = [
+  {
+    src: '/logos/upgrad.png',
+    alt: 'upGrad',
+    title: 'upGrad',
+  },
+  {
+    src: '/logos/simplilearn.png',
+    alt: 'Simplilearn',
+    title: 'Simplilearn',
+  },
+  {
+    src: '/logos/wisprflow.png',
+    alt: 'Wispr Flow',
+    title: 'Wispr Flow',
+  },
+  {
+    src: '/logos/saregama.png',
+    alt: 'Saregama',
+    title: 'Saregama',
+  },
+  {
+    src: '/logos/workory.png',
+    alt: 'Workory Talent',
+    title: 'Workory Talent',
+  },
+  {
+    src: '/logos/slice.png',
+    alt: 'Slice',
+    title: 'Slice',
+  },
+  {
+    src: '/logos/omnidimension.png',
+    alt: 'Omni Dimension',
+    title: 'Omni Dimension',
+  },
+  {
+    src: '/logos/superprofile.png',
+    alt: 'SuperProfile',
+    title: 'SuperProfile',
+  },
+  {
+    src: '/logos/mirai.png',
+    alt: 'Mirai',
+    title: 'Mirai',
+  },
+  {
+    src: '/logos/grncoastal.png',
+    alt: 'GRN Coastal',
+    title: 'GRN Coastal',
+  },
+];
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -54,9 +86,14 @@ export default function Home() {
   // 100% User Provided YouTube Long Videos & Channels
   const workItems = [
     {
-      image: 'https://img.youtube.com/vi/_Yi2lkoBWIo/hqdefault.jpg',
-      title: 'Video Edit',
-      href: 'https://youtu.be/_Yi2lkoBWIo?si=Qh2s6C_Ua3Hhap-j',
+      image: 'https://img.youtube.com/vi/TlAsJYgexDA/hqdefault.jpg',
+      title: 'Long Form Video Edit',
+      href: 'https://youtu.be/TlAsJYgexDA?si=WjzPp9oKEr8qKFnm',
+    },
+    {
+      image: 'https://img.youtube.com/vi/qVpRUZiPyAw/hqdefault.jpg',
+      title: 'Featured YouTube Edit',
+      href: 'https://www.youtube.com/watch?v=qVpRUZiPyAw',
     },
     {
       image: 'https://img.youtube.com/vi/zmtE0WnQGB4/hqdefault.jpg',
@@ -102,11 +139,6 @@ export default function Home() {
       image: 'https://img.youtube.com/vi/iZKCy25gccY/hqdefault.jpg',
       title: 'Creator Documentary',
       href: 'https://youtu.be/iZKCy25gccY?si=zVzd1ZlbXJqVJciJ',
-    },
-    {
-      image: 'https://img.youtube.com/vi/_Yi2lkoBWIo/hqdefault.jpg',
-      title: 'Shubham Wadekar',
-      href: 'https://youtube.com/@shubham_wadekar?si=1nmkbhin8y94mdKE',
     },
     {
       image: 'https://img.youtube.com/vi/5ez2gH0lII8/hqdefault.jpg',
@@ -208,14 +240,21 @@ export default function Home() {
         style={{ opacity: byVeeralOpacity, y: byVeeralY }}
         className="fixed top-6 left-6 sm:top-8 sm:left-8 z-50 flex items-center pointer-events-none"
       >
-        <motion.span
+        <motion.div
           initial={{ opacity: 0, y: -15, filter: 'blur(8px)' }}
           animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
           transition={{ delay: 0.2, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="text-xs sm:text-sm font-medium tracking-wider text-black/80 select-none lowercase"
+          className="flex items-center gap-2 select-none"
         >
-          by veeral
-        </motion.span>
+          <img
+            src="/movial-logo.png"
+            alt="Movial Logo"
+            className="w-5 h-5 sm:w-6 sm:h-6 object-contain rounded-md"
+          />
+          <span className="text-xs sm:text-sm font-medium tracking-wider text-black/80 lowercase">
+            by veeral
+          </span>
+        </motion.div>
       </motion.div>
 
       {/* Top Right Menu Capsule Button */}
@@ -365,7 +404,17 @@ export default function Home() {
 
               {/* Menu Footer */}
               <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center text-xs font-mono text-neutral-400 gap-4 pt-4 border-t border-neutral-800">
-                <span>High Quality Video Editing Services</span>
+                <div className="flex items-center gap-4">
+                  <span>High Quality Video Editing Services</span>
+                  <a
+                    href="https://calendly.com/movial-gro/30min"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-4 py-2 rounded-full bg-red-600 hover:bg-red-500 text-white font-bold text-xs uppercase tracking-wider transition-all"
+                  >
+                    BOOK A CALL 📅
+                  </a>
+                </div>
                 <span>© {new Date().getFullYear()} Movial. All Rights Reserved.</span>
               </div>
             </div>
@@ -539,13 +588,13 @@ export default function Home() {
         </div>
 
         {/* React Bits LogoLoop Infinite Marquee Component */}
-        <div className="py-2">
+        <div className="py-4">
           <LogoLoop
             logos={workedWithLogos}
-            speed={90}
+            speed={50}
             direction="left"
             logoHeight={44}
-            gap={20}
+            gap={64}
             hoverSpeed={0}
             scaleOnHover
             fadeOut

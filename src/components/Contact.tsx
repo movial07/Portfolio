@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import BookingCalendar from './BookingCalendar';
 
 export const Contact: React.FC = () => {
   const whatsappNumber = '+91 99902 24708';
@@ -10,6 +11,8 @@ export const Contact: React.FC = () => {
   const emailUrl = 'mailto:movial.gro@gmail.com?subject=Video%20Editing%20Inquiry%20-%20Movial';
   const instagramHandle = '@movial.gro';
   const instagramUrl = 'https://www.instagram.com/movial.gro';
+
+  const calendlyUrl = 'https://calendly.com/movial-gro/30min';
 
   const channels = [
     {
@@ -37,10 +40,10 @@ export const Contact: React.FC = () => {
   return (
     <section
       id="contact"
-      className="min-h-screen bg-white text-black py-20 sm:py-28 relative overflow-hidden flex flex-col justify-between"
+      className="min-h-screen bg-white text-black py-16 sm:py-24 relative overflow-hidden flex flex-col justify-between"
     >
       {/* Header inside exact 12-column grid matching Long Form Edits */}
-      <div className="max-w-7xl mx-auto px-6 sm:px-12 md:px-20 mb-8 sm:mb-12 w-full">
+      <div className="max-w-7xl mx-auto px-6 sm:px-12 md:px-20 mb-6 sm:mb-10 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
           <motion.div
             initial={{ opacity: 0, y: 40, filter: 'blur(12px)' }}
@@ -57,19 +60,27 @@ export const Contact: React.FC = () => {
       </div>
 
       {/* Full Width Content Layout Matching Long Form Edits Container */}
-      <div className="max-w-7xl mx-auto px-6 sm:px-12 md:px-20 w-full space-y-12 my-auto">
-        {/* Lead Statement */}
-        <motion.p
+      <div className="max-w-7xl mx-auto px-6 sm:px-12 md:px-20 w-full space-y-8 sm:space-y-10 my-auto">
+        {/* Official Live Calendly Widget (Native 3-Column Layout & Direct Booking) */}
+        <motion.div
           initial={{ opacity: 0, y: 35, filter: 'blur(10px)' }}
           whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-          viewport={{ once: true, margin: '-80px' }}
+          viewport={{ once: true }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className="text-lg sm:text-2xl font-medium text-black leading-relaxed border-l-2 border-black pl-6 max-w-4xl"
+          className="w-full max-w-5xl mx-auto rounded-3xl overflow-hidden shadow-2xl border border-neutral-200 bg-white p-1 sm:p-2 relative"
         >
-          Have a project in mind or want to collaborate? Reach out directly to discuss video editing, storytelling, or custom visual cuts.
-        </motion.p>
+          <iframe
+            src="https://calendly.com/movial-gro/30min?hide_gdpr_banner=1"
+            width="100%"
+            height="660"
+            frameBorder="0"
+            scrolling="no"
+            className="w-full rounded-2xl h-[640px] sm:h-[660px] overflow-hidden"
+            title="Book a 30 Minute Meeting with Movial"
+          />
+        </motion.div>
 
-        {/* 2 Contact Cards Layout Spanning Full Container Width */}
+        {/* 2 Contact Cards Layout Below Calendly Banner */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
           {channels.map((ch, idx) => (
             <motion.div

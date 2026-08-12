@@ -26,8 +26,13 @@ const comicNeue = Comic_Neue({
 });
 
 export const metadata: Metadata = {
-  title: "Veeral",
-  description: "Portfolio of Veeral",
+  title: "Movial • High Quality Video Editing Services",
+  description: "Movial - High Quality Video Editing & Visual Storytelling Services by Veeral",
+  icons: {
+    icon: "/icon.png",
+    shortcut: "/icon.png",
+    apple: "/apple-icon.png",
+  },
 };
 
 import SmoothScroll from "@/components/SmoothScroll";
