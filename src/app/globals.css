@@ -43,9 +43,21 @@ html.lenis, html.lenis body {
   height: 0;
 }
 
+html {
+  scroll-snap-type: y proximity;
+}
+
 html, body {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
+  overflow-x: hidden;
+  max-width: 100vw;
+  -webkit-tap-highlight-color: transparent;
+}
+
+section, main {
+  scroll-snap-align: start;
+  scroll-snap-stop: normal;
 }
 
 .lenis.lenis-smooth {

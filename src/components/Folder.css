@@ -100,34 +100,35 @@
   box-shadow: none;
 }
 
-.folder__back::after {
+.folder__back::before {
+  content: '';
   position: absolute;
-  z-index: 0;
   bottom: 98%;
   left: 0;
-  content: '';
   width: 65px;
-  height: 20px;
+  height: 16px;
   background: var(--folder-back-color);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-bottom: none;
-  border-radius: 8px 8px 0 0;
+  border-radius: 8px 8px 0px 0px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  border-left: 1px solid rgba(255, 255, 255, 0.12);
+  border-right: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .paper {
   position: absolute;
-  z-index: 2;
   bottom: 10%;
   left: 50%;
   transform: translate(-50%, 10%);
-  width: 88%;
-  height: 88%;
-  background: var(--paper-1);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 14px;
-  box-shadow: none;
+  width: 180px;
+  height: 110px;
+  border-radius: 12px;
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.paper:nth-child(1) {
+  background: var(--paper-1);
 }
 
 .paper:nth-child(2) {
@@ -162,4 +163,39 @@
   outline: 2px solid #ffffff;
   outline-offset: 4px;
   border-radius: 12px;
+}
+
+@media (max-width: 640px) {
+  .folder.open .paper:nth-child(1) {
+    transform: translate(-112%, -25%) rotateZ(-5deg);
+    width: 195px;
+    height: 145px;
+  }
+  .folder.open .paper:nth-child(1):hover {
+    transform: translate(-112%, -25%) rotateZ(-5deg) scale(1.04);
+  }
+  .folder.open .paper:nth-child(2) {
+    transform: translate(12%, -25%) rotateZ(5deg);
+    width: 195px;
+    height: 145px;
+  }
+  .folder.open .paper:nth-child(2):hover {
+    transform: translate(12%, -25%) rotateZ(5deg) scale(1.04);
+  }
+  .folder.open .paper:nth-child(3) {
+    transform: translate(-112%, -140%) rotateZ(-3deg);
+    width: 195px;
+    height: 145px;
+  }
+  .folder.open .paper:nth-child(3):hover {
+    transform: translate(-112%, -140%) rotateZ(-3deg) scale(1.04);
+  }
+  .folder.open .paper:nth-child(4) {
+    transform: translate(12%, -140%) rotateZ(3deg);
+    width: 195px;
+    height: 145px;
+  }
+  .folder.open .paper:nth-child(4):hover {
+    transform: translate(12%, -140%) rotateZ(3deg) scale(1.04);
+  }
 }

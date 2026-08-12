@@ -58,7 +58,17 @@ const defaultReels: ReelItem[] = [
 export const DepthCarousel: React.FC<{ items?: ReelItem[] }> = ({ items = defaultReels }) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isMuted, setIsMuted] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
   const videoRefs = React.useRef<{ [key: string]: HTMLVideoElement | null }>({});
+
+  React.useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 640);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const handleNext = React.useCallback(() => {
     setIsMuted(true);
@@ -95,28 +105,38 @@ export const DepthCarousel: React.FC<{ items?: ReelItem[] }> = ({ items = defaul
           let filter = 'none';
 
           if (offset === 0) {
-            transform = 'translateX(0px) translateZ(80px) rotateY(0deg) scale(1.08)';
+            transform = isMobile
+              ? 'translateX(0px) translateZ(40px) rotateY(0deg) scale(1.02)'
+              : 'translateX(0px) translateZ(80px) rotateY(0deg) scale(1.08)';
             opacity = 1;
             zIndex = 30;
             filter = 'brightness(1.08) grayscale(0)';
           } else if (offset === 1 || offset === -(items.length - 1)) {
-            transform = 'translateX(240px) translateZ(-100px) rotateY(-25deg) scale(0.85)';
-            opacity = 0.7;
+            transform = isMobile
+              ? 'translateX(100px) translateZ(-60px) rotateY(-18deg) scale(0.78)'
+              : 'translateX(240px) translateZ(-100px) rotateY(-25deg) scale(0.85)';
+            opacity = isMobile ? 0.45 : 0.7;
             zIndex = 20;
             filter = 'brightness(0.6) grayscale(0.2)';
           } else if (offset === -1 || offset === items.length - 1) {
-            transform = 'translateX(-240px) translateZ(-100px) rotateY(25deg) scale(0.85)';
-            opacity = 0.7;
+            transform = isMobile
+              ? 'translateX(-100px) translateZ(-60px) rotateY(18deg) scale(0.78)'
+              : 'translateX(-240px) translateZ(-100px) rotateY(25deg) scale(0.85)';
+            opacity = isMobile ? 0.45 : 0.7;
             zIndex = 20;
             filter = 'brightness(0.6) grayscale(0.2)';
           } else if (offset === 2 || offset === -(items.length - 2)) {
-            transform = 'translateX(400px) translateZ(-220px) rotateY(-35deg) scale(0.7)';
-            opacity = 0.4;
+            transform = isMobile
+              ? 'translateX(180px) translateZ(-150px) rotateY(-25deg) scale(0.6)'
+              : 'translateX(400px) translateZ(-220px) rotateY(-35deg) scale(0.7)';
+            opacity = isMobile ? 0 : 0.4;
             zIndex = 10;
             filter = 'brightness(0.4) grayscale(0.5)';
           } else if (offset === -2 || offset === items.length - 2) {
-            transform = 'translateX(-400px) translateZ(-220px) rotateY(35deg) scale(0.7)';
-            opacity = 0.4;
+            transform = isMobile
+              ? 'translateX(-180px) translateZ(-150px) rotateY(25deg) scale(0.6)'
+              : 'translateX(-400px) translateZ(-220px) rotateY(35deg) scale(0.7)';
+            opacity = isMobile ? 0 : 0.4;
             zIndex = 10;
             filter = 'brightness(0.4) grayscale(0.5)';
           }

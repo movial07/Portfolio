@@ -374,12 +374,12 @@ export default function Home() {
       </AnimatePresence>
 
       {/* Hero Section: Movial Text + Subtitle */}
-      <main id="hero" className="flex min-h-screen flex-col items-center justify-center px-4 relative">
+      <main id="hero" className="flex min-h-screen flex-col items-center justify-center px-4 relative overflow-hidden">
         <motion.h1
           initial={{ opacity: 0, filter: 'blur(20px)', scale: 0.25 }}
           animate={{ opacity: 1, filter: 'blur(0px)', scale: 1 }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="text-[18.75vw] font-semibold tracking-[-0.06em] leading-[0.8] select-none text-center whitespace-nowrap"
+          className="text-[17vw] sm:text-[18.75vw] font-semibold tracking-[-0.06em] leading-[0.8] select-none text-center whitespace-nowrap"
         >
           movial
         </motion.h1>
@@ -389,7 +389,7 @@ export default function Home() {
           initial={{ opacity: 0, y: 15, filter: 'blur(10px)' }}
           animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
           transition={{ delay: 0.4, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-6 sm:mt-8 text-xs sm:text-sm md:text-base font-mono uppercase tracking-[0.22em] text-neutral-500 text-center select-none"
+          className="mt-6 sm:mt-8 text-[10px] sm:text-sm md:text-base font-mono uppercase tracking-[0.14em] sm:tracking-[0.22em] text-neutral-500 text-center select-none max-w-full px-2"
         >
           high quality video editing services
         </motion.p>
