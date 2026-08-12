@@ -36,7 +36,7 @@ const Folder: React.FC<FolderProps> = ({
   className = '',
   onToggle,
 }) => {
-  const maxItems = 4;
+  const maxItems = 5;
   const papers = items.slice(0, maxItems);
   while (papers.length < maxItems) {
     papers.push(null);

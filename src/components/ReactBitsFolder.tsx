@@ -31,7 +31,7 @@ export const ReactBitsFolderWrapper: React.FC<ReactBitsFolderWrapperProps> = ({ 
   }, []);
 
   // Render complete review card for each paper in official ReactBits <Folder />
-  const folderPapers = items.slice(0, 4).map((item) => (
+  const folderPapers = items.slice(0, 5).map((item) => (
     <div
       key={item.id}
       className="w-full h-full p-2.5 sm:p-4 text-white flex flex-col justify-between select-none bg-[#0f1117]/95 border border-neutral-700/80 rounded-xl shadow-xl hover:border-red-500/80 transition-all group"

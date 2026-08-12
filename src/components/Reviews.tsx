@@ -44,6 +44,16 @@ const reviewsData: ReviewItem[] = [
       'Veeral elevates every single piece of footage. The transitions, sound design, and visual flow are top notch. Highly recommended for any creator!',
     platform: 'instagram',
   },
+  {
+    id: '05',
+    name: 'Kartikey Singh',
+    meta: '150K+ followers',
+    verified: true,
+    avatar: '/avatars/kartikey.png',
+    review:
+      "Veeral's speed, attention to detail, and storytelling ability turned our raw footage into top-performing content. Outstanding editor.",
+    platform: 'instagram',
+  },
 ];
 
 interface ReviewsProps {
