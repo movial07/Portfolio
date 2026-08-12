@@ -156,8 +156,8 @@ export const DepthCarousel: React.FC<{ items?: ReelItem[] }> = ({ items = defaul
               )}
 
               {/* Card Controls Overlay */}
-              <div className="depth-carousel__overlay pointer-events-none">
-                <div className="flex justify-between items-center w-full">
+              <div className="depth-carousel__overlay pointer-events-none p-4 flex flex-col justify-between">
+                <div className="flex justify-between items-center w-full gap-2">
                   {/* Mute/Unmute Audio Button for Active Card */}
                   {item.video && isActive ? (
                     <button
@@ -179,6 +179,20 @@ export const DepthCarousel: React.FC<{ items?: ReelItem[] }> = ({ items = defaul
                         </svg>
                       )}
                     </button>
+                  ) : <div />}
+
+                  {/* Open Profile Button Pill on Top Right */}
+                  {item.href ? (
+                    <a
+                      href={item.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={(e) => e.stopPropagation()}
+                      className="pointer-events-auto inline-flex items-center gap-1.5 bg-black/75 hover:bg-black text-white text-[10px] sm:text-xs font-mono font-bold px-3 py-2 sm:px-4 sm:py-2.5 rounded-full border border-white/20 backdrop-blur-md shadow-xl transition-all hover:scale-105 hover:border-white shrink-0 ml-auto"
+                    >
+                      <span>OPEN PROFILE</span>
+                      <span className="text-xs">↗</span>
+                    </a>
                   ) : null}
                 </div>
               </div>

@@ -8,6 +8,28 @@ import CountryLoop from '@/components/CountryLoop';
 import Reviews from '@/components/Reviews';
 import Contact from '@/components/Contact';
 import StrokeText from '@/components/StrokeText';
+import LogoLoop from '@/components/LogoLoop';
+
+const workedWithLogos = [
+  'emergent',
+  'matiks',
+  'simplilearn',
+  'wisprflow',
+  'saregama',
+  'superprofile',
+  'mirai',
+  'cursor',
+  'college vidya',
+  'polaris school of technology',
+  'slice bank',
+].map((name) => ({
+  node: (
+    <span className="px-6 py-3 rounded-full bg-neutral-900 border border-neutral-800 text-white font-mono text-xs sm:text-sm uppercase tracking-wider font-extrabold whitespace-nowrap shadow-lg hover:border-white hover:bg-neutral-800 transition-all cursor-pointer">
+      {name}
+    </span>
+  ),
+  title: name,
+}));
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -97,58 +119,58 @@ export default function Home() {
   const reelItems: ReelItem[] = [
     {
       id: '01',
-      title: 'Instagram Edit 01',
-      creator: 'Instagram Reel',
+      title: 'Harshit Dwivedi Videos',
+      creator: 'YouTube Shorts',
       image: '/movial-placeholder.jpeg',
-      href: 'https://www.instagram.com/p/Dax_-yHvjpD/',
+      href: 'https://www.youtube.com/@HARSHITDWIVEDIVIDEOS/shorts',
       video: '/reels/1.mp4',
     },
     {
       id: '02',
-      title: 'Instagram Reel 02',
+      title: 'Meet Shivam',
       creator: 'Instagram Reel',
       image: '/movial-placeholder.jpeg',
-      href: 'https://www.instagram.com/reel/DYq9NIaIulZ/',
+      href: 'https://www.instagram.com/meet_.shivam/',
       video: '/reels/2.mp4',
     },
     {
       id: '03',
-      title: 'Instagram Cut 03',
+      title: 'Degree Crafters',
       creator: 'Instagram Reel',
       image: '/movial-placeholder.jpeg',
-      href: 'https://www.instagram.com/p/Da0oXYChPvS/',
+      href: 'https://www.instagram.com/degreecrafters?utm_source=ig_web_button_share_sheet',
       video: '/reels/3.mp4',
     },
     {
       id: '04',
-      title: 'Instagram Reel 04',
+      title: 'Kartikey Singh',
       creator: 'Instagram Reel',
       image: '/movial-placeholder.jpeg',
-      href: 'https://www.instagram.com/reel/DaVBeugskV2/',
+      href: 'https://www.instagram.com/kartikeysinggh?utm_source=ig_web_button_share_sheet',
       video: '/reels/4.mp4',
     },
     {
       id: '05',
-      title: 'Featured Reel Cut 05',
+      title: 'Shubham Codes',
       creator: 'Instagram Reel',
       image: '/movial-placeholder.jpeg',
-      href: 'https://www.instagram.com/reel/DXMZ7N7E7T9/',
+      href: 'https://www.instagram.com/shubhaam.codes/',
       video: '/reels/5.mp4',
     },
     {
       id: '06',
-      title: 'Vertical Reel Cut 06',
+      title: 'CodeSpace Lab',
       creator: 'Instagram Reel',
       image: '/movial-placeholder.jpeg',
-      href: 'https://www.instagram.com/reel/DXMZ7N7E7T9/',
+      href: 'https://www.instagram.com/codespacelab/reels/',
       video: '/reels/6.mp4',
     },
     {
       id: '07',
-      title: 'Cinematic Reel 07',
-      creator: 'Instagram Reel',
+      title: 'Mr. Universe',
+      creator: 'YouTube Shorts',
       image: '/movial-placeholder.jpeg',
-      href: 'https://www.instagram.com/reel/DXMZ7N7E7T9/',
+      href: 'https://www.youtube.com/@Mr.Universe-c6i/shorts',
       video: '/reels/7.mp4',
     },
   ];
@@ -172,10 +194,10 @@ export default function Home() {
       animate={
         isShaking
           ? {
-              x: [0, -4, 4, -2, 2, 0],
-              y: [0, 3, -3, 1, 0],
-              rotate: [0, -0.4, 0.4, -0.2, 0],
-            }
+            x: [0, -4, 4, -2, 2, 0],
+            y: [0, 3, -3, 1, 0],
+            rotate: [0, -0.4, 0.4, -0.2, 0],
+          }
           : { x: 0, y: 0, rotate: 0 }
       }
       transition={{ duration: 0.35, ease: 'easeOut' }}
@@ -505,6 +527,31 @@ export default function Home() {
               <CountryLoop />
             </motion.div>
           </div>
+        </div>
+      </section>
+
+      {/* Sponsorship Campaigns Section (Placed directly below About Us, white theme matching About Us) */}
+      <section className="bg-white text-black pb-16 sm:pb-20 overflow-hidden relative">
+        <div className="max-w-7xl mx-auto px-4 sm:px-8 md:px-12 mb-8 sm:mb-10 text-center">
+          <h3 className="text-base sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black tracking-tight text-black select-none text-center whitespace-nowrap">
+            Made Sponsorship Campaign as Video Editor for
+          </h3>
+        </div>
+
+        {/* React Bits LogoLoop Infinite Marquee Component */}
+        <div className="py-2">
+          <LogoLoop
+            logos={workedWithLogos}
+            speed={90}
+            direction="left"
+            logoHeight={44}
+            gap={20}
+            hoverSpeed={0}
+            scaleOnHover
+            fadeOut
+            fadeOutColor="#ffffff"
+            ariaLabel="Worked with brands and partners"
+          />
         </div>
       </section>
 
