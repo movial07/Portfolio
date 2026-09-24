@@ -37,7 +37,7 @@ export const Contact: React.FC = () => {
     },
     {
       id: 'whatsapp',
-      detail: whatsappNumber,
+      detail: 'WhatsApp',
       href: whatsappUrl,
       icon: (
         <svg className="w-8 h-8 fill-[#25D366]" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
