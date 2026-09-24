@@ -35,6 +35,16 @@ export const Contact: React.FC = () => {
         </svg>
       ),
     },
+    {
+      id: 'whatsapp',
+      detail: whatsappNumber,
+      href: whatsappUrl,
+      icon: (
+        <svg className="w-8 h-8 fill-[#25D366]" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12.004 2C6.48 2 2.004 6.478 2.004 12c0 1.767.462 3.488 1.34 5.008L2 22l5.127-1.344A9.957 9.957 0 0 0 12.004 22c5.523 0 10-4.478 10-10s-4.477-10-10-10zm0 18.286c-1.543 0-3.048-.415-4.364-1.2l-.313-.186-3.242.85.865-3.16-.204-.326A8.256 8.256 0 0 1 3.718 12c0-4.568 3.718-8.286 8.286-8.286 4.568 0 8.286 3.718 8.286 8.286 0 4.568-3.718 8.286-8.286 8.286zm4.538-6.195c-.248-.124-1.468-.724-1.696-.807-.228-.083-.394-.124-.56.124-.166.248-.642.807-.787.973-.145.166-.29.186-.538.062-.248-.124-1.049-.387-1.998-1.233-.738-.658-1.236-1.472-1.381-1.72-.145-.248-.016-.382.108-.506.112-.111.248-.29.373-.435.124-.145.166-.248.248-.414.083-.166.041-.311-.02-.435-.063-.124-.56-1.35-.767-1.85-.202-.486-.407-.42-.56-.428l-.477-.008c-.166 0-.435.062-.663.311-.228.248-.87 0.85-.87 2.073 0 1.223.891 2.405 1.015 2.571.124.166 1.753 2.678 4.248 3.755.593.256 1.056.41 1.417.525.596.19 1.138.163 1.567.099.478-.071 1.468-.6 1.675-1.18.207-.58.207-1.077.145-1.18-.062-.104-.228-.166-.476-.29z" />
+        </svg>
+      ),
+    },
   ];
 
   return (
@@ -48,7 +58,7 @@ export const Contact: React.FC = () => {
           <motion.div
             initial={{ opacity: 0, y: 40, filter: 'blur(12px)' }}
             whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-            viewport={{ once: true, margin: '-100px' }}
+            viewport={{ once: true, amount: 0.15 }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-8 space-y-4"
           >
@@ -65,7 +75,7 @@ export const Contact: React.FC = () => {
         <motion.div
           initial={{ opacity: 0, y: 35, filter: 'blur(10px)' }}
           whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.15 }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           className="w-full max-w-5xl mx-auto rounded-3xl overflow-hidden shadow-2xl border border-neutral-200 bg-white p-1 sm:p-2 relative"
         >
@@ -80,14 +90,14 @@ export const Contact: React.FC = () => {
           />
         </motion.div>
 
-        {/* 2 Contact Cards Layout Below Calendly Banner */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+        {/* 3 Contact Cards Layout Below Calendly Banner */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
           {channels.map((ch, idx) => (
             <motion.div
               key={ch.id}
               initial={{ opacity: 0, y: 35, filter: 'blur(10px)' }}
               whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-              viewport={{ once: true }}
+              viewport={{ once: true, amount: 0.15 }}
               transition={{ delay: idx * 0.1, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
               className="bg-[#0f1117] text-white p-8 sm:p-10 rounded-3xl border border-neutral-800 flex flex-col justify-between gap-8 shadow-xl hover:border-neutral-700 hover:-translate-y-1 transition-all duration-300 group"
             >

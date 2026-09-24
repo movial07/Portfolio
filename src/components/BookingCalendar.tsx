@@ -36,7 +36,7 @@ export const BookingCalendar: React.FC<BookingCalendarProps> = ({
     <motion.div
       initial={{ opacity: 0, y: 25, filter: 'blur(8px)' }}
       whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-      viewport={{ once: true }}
+      viewport={{ once: true, amount: 0.15 }}
       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
       className="w-full max-w-5xl mx-auto bg-white text-black rounded-3xl border border-neutral-200/90 shadow-2xl p-6 sm:p-8 select-none"
     >

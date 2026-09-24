@@ -24,7 +24,8 @@ export const ReactBitsFolderWrapper: React.FC<ReactBitsFolderWrapperProps> = ({ 
 
   React.useEffect(() => {
     const checkMobile = () => {
-      setIsMobile(window.innerWidth < 640);
+      const isNowMobile = window.innerWidth < 640;
+      setIsMobile((prev) => (prev !== isNowMobile ? isNowMobile : prev));
     };
     checkMobile();
     window.addEventListener('resize', checkMobile);

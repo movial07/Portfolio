@@ -72,7 +72,8 @@ export default function Home() {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
+      const isNowMobile = window.innerWidth < 768;
+      setIsMobile((prev) => (prev !== isNowMobile ? isNowMobile : prev));
     };
     handleResize();
     window.addEventListener('resize', handleResize);
@@ -474,7 +475,7 @@ export default function Home() {
           <motion.div
             initial={{ opacity: 0, y: 40, filter: 'blur(12px)' }}
             whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-            viewport={{ once: true, margin: '-100px' }}
+            viewport={{ once: true, amount: 0.15 }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-5 lg:sticky lg:top-28 space-y-4"
           >
@@ -489,7 +490,7 @@ export default function Home() {
             <motion.p
               initial={{ opacity: 0, y: 35, filter: 'blur(10px)' }}
               whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-              viewport={{ once: true, margin: '-80px' }}
+              viewport={{ once: true, amount: 0.15 }}
               transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
               className="text-lg sm:text-2xl font-medium text-black leading-relaxed border-l-2 border-black pl-6"
             >
@@ -500,7 +501,7 @@ export default function Home() {
             <motion.div
               initial={{ opacity: 0, y: 35, filter: 'blur(10px)' }}
               whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-              viewport={{ once: true, margin: '-60px' }}
+              viewport={{ once: true, amount: 0.15 }}
               transition={{ delay: 0.15, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
               className="py-2 space-y-4"
             >
@@ -574,7 +575,7 @@ export default function Home() {
                 key={idx}
                 initial={{ opacity: 0, y: 35, filter: 'blur(10px)' }}
                 whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-                viewport={{ once: true, margin: '-80px' }}
+                viewport={{ once: true, amount: 0.15 }}
                 transition={{
                   delay: 0.2 + idx * 0.12,
                   duration: 0.7,
@@ -590,7 +591,7 @@ export default function Home() {
             <motion.div
               initial={{ opacity: 0, y: 25, filter: 'blur(8px)' }}
               whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-              viewport={{ once: true }}
+              viewport={{ once: true, amount: 0.15 }}
               transition={{ delay: 0.35, duration: 0.7 }}
             >
               <CountryLoop />
@@ -635,7 +636,7 @@ export default function Home() {
             <motion.div
               initial={{ opacity: 0, y: 40, filter: 'blur(12px)' }}
               whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-              viewport={{ once: true, margin: '-100px' }}
+              viewport={{ once: true, amount: 0.15 }}
               transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
               className="lg:col-span-8 space-y-4"
             >
@@ -650,7 +651,7 @@ export default function Home() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.15 }}
           transition={{ duration: 0.6 }}
           className="w-full h-[520px] sm:h-[850px] lg:h-[950px] relative"
         >
@@ -694,7 +695,7 @@ export default function Home() {
           <motion.svg
             initial={{ opacity: 0, scale: 0.92, rotate: -3 }}
             whileInView={{ opacity: 0.22, scale: 1, rotate: 0 }}
-            viewport={{ once: true, margin: '-100px' }}
+            viewport={{ once: true, amount: 0.15 }}
             transition={{ duration: 2.0, ease: [0.16, 1, 0.3, 1] }}
             className="w-full h-full max-w-7xl mx-auto will-change-transform"
             viewBox="0 0 1200 800"
@@ -747,7 +748,7 @@ export default function Home() {
             <motion.div
               initial={{ opacity: 0, y: 40, filter: 'blur(12px)' }}
               whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-              viewport={{ once: true, margin: '-100px' }}
+              viewport={{ once: true, amount: 0.15 }}
               transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
               className="lg:col-span-8 space-y-4"
             >
@@ -762,7 +763,7 @@ export default function Home() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.15 }}
           transition={{ duration: 0.6 }}
           className="w-full relative z-10"
         >

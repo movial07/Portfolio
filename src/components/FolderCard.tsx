@@ -30,7 +30,7 @@ export const FolderCard: React.FC<FolderCardProps> = ({ item, index, isOpen, onT
     <motion.div
       initial={{ opacity: 0, y: 35, filter: 'blur(10px)' }}
       whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-      viewport={{ once: true, margin: '-60px' }}
+      viewport={{ once: true, amount: 0.15 }}
       transition={{ delay: index * 0.1, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
       className="relative w-full cursor-pointer group perspective-1000 select-none"
       onMouseEnter={() => setIsHovered(true)}

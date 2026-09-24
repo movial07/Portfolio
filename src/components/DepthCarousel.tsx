@@ -63,7 +63,8 @@ export const DepthCarousel: React.FC<{ items?: ReelItem[] }> = ({ items = defaul
 
   React.useEffect(() => {
     const checkMobile = () => {
-      setIsMobile(window.innerWidth < 640);
+      const isNowMobile = window.innerWidth < 640;
+      setIsMobile((prev) => (prev !== isNowMobile ? isNowMobile : prev));
     };
     checkMobile();
     window.addEventListener('resize', checkMobile);

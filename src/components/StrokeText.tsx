@@ -8,6 +8,7 @@ import './StrokeText.css';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
+  ScrollTrigger.config({ ignoreMobileResize: true });
 }
 
 export type StrokeTextTrigger = 'mount' | 'hover' | 'scroll' | 'loop';
