@@ -233,9 +233,8 @@ export const DepthCarousel: React.FC<{ items?: ReelItem[] }> = ({ items = defaul
               key={idx}
               type="button"
               onClick={() => setActiveIndex(idx)}
-              className={`h-2 rounded-full transition-all duration-200 ${
-                idx === activeIndex ? 'w-8 bg-black' : 'w-2 bg-neutral-300'
-              }`}
+              className={`h-2 rounded-full transition-all duration-200 ${idx === activeIndex ? 'w-8 bg-black' : 'w-2 bg-neutral-300'
+                }`}
             />
           ))}
         </div>

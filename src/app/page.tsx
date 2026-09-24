@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 import DriftWall from '@/components/DriftWall';
 import DepthCarousel, { ReelItem } from '@/components/DepthCarousel';
@@ -67,7 +67,17 @@ const workedWithLogos: LogoItem[] = [
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isShaking, setIsShaking] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const { scrollY } = useScroll();
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const handleFolderOpen = () => {
     setIsShaking(true);
@@ -86,11 +96,6 @@ export default function Home() {
 
   // 100% User Provided YouTube Long Videos & Channels
   const workItems = [
-    {
-      image: 'https://img.youtube.com/vi/ltm33Rvuvvs/hqdefault.jpg',
-      title: 'Redis Masterclass - SYS TITANS',
-      href: 'https://www.youtube.com/watch?v=ltm33Rvuvvs',
-    },
     {
       image: 'https://img.youtube.com/vi/TlAsJYgexDA/hqdefault.jpg',
       title: 'Long Form Video Edit',
@@ -434,7 +439,7 @@ export default function Home() {
         <Squares
           direction="diagonal"
           speed={0.35}
-          squareSize={48}
+          squareSize={isMobile ? 38 : 48}
           borderColor="rgba(0, 0, 0, 0.05)"
           hoverFillColor="rgba(239, 68, 68, 0.16)"
         />
@@ -514,7 +519,7 @@ export default function Home() {
                     fillDelay={0.2}
                     trigger="scroll"
                     fillMode="wipe"
-                    fontSize={64}
+                    fontSize={isMobile ? 42 : 64}
                     fontWeight={900}
                     letterSpacing={-2}
                   />
@@ -533,7 +538,7 @@ export default function Home() {
                     fillDelay={0.2}
                     trigger="scroll"
                     fillMode="wipe"
-                    fontSize={64}
+                    fontSize={isMobile ? 42 : 64}
                     fontWeight={900}
                     letterSpacing={-2}
                   />
@@ -552,7 +557,7 @@ export default function Home() {
                     fillDelay={0.2}
                     trigger="scroll"
                     fillMode="wipe"
-                    fontSize={64}
+                    fontSize={isMobile ? 42 : 64}
                     fontWeight={900}
                     letterSpacing={-2}
                   />
@@ -597,7 +602,7 @@ export default function Home() {
       {/* Sponsorship Campaigns Section (Placed directly below About Us, white theme matching About Us) */}
       <section className="bg-white text-black pb-16 sm:pb-20 overflow-hidden relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-8 md:px-12 mb-8 sm:mb-10 text-center">
-          <h3 className="text-base sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black tracking-tight text-black select-none text-center whitespace-nowrap">
+          <h3 className="text-base sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black tracking-tight text-black select-none text-center whitespace-normal sm:whitespace-nowrap px-2">
             Made Sponsorship Campaign as Video Editor for
           </h3>
         </div>
@@ -606,10 +611,10 @@ export default function Home() {
         <div className="py-4">
           <LogoLoop
             logos={workedWithLogos}
-            speed={50}
+            speed={isMobile ? 35 : 50}
             direction="left"
-            logoHeight={44}
-            gap={64}
+            logoHeight={isMobile ? 32 : 44}
+            gap={isMobile ? 40 : 64}
             hoverSpeed={0}
             scaleOnHover
             fadeOut
@@ -634,36 +639,36 @@ export default function Home() {
               transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
               className="lg:col-span-8 space-y-4"
             >
-              <h2 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-black tracking-tighter leading-none select-none text-black">
+              <h2 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black tracking-tighter leading-none select-none text-black">
                 Long Form Edits
               </h2>
             </motion.div>
           </div>
         </div>
 
-        {/* Full Screen Width DriftWall Canvas */}
+        {/* Full Screen Width DriftWall Canvas - Scaled to fit all videos on mobile UI */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="w-full h-[850px] sm:h-[950px] relative"
+          className="w-full h-[520px] sm:h-[850px] lg:h-[950px] relative"
         >
           <DriftWall
             items={workItems}
-            columns={6}
-            tileWidth={300}
-            tileHeight={195}
-            gap={24}
-            tilt={16}
-            turn={-14}
-            perspective={1200}
-            depth={120}
-            speed={42}
+            columns={isMobile ? 3 : 6}
+            tileWidth={isMobile ? 120 : 300}
+            tileHeight={isMobile ? 78 : 195}
+            gap={isMobile ? 10 : 24}
+            tilt={isMobile ? 10 : 16}
+            turn={isMobile ? -8 : -14}
+            perspective={isMobile ? 850 : 1200}
+            depth={isMobile ? 50 : 120}
+            speed={isMobile ? 32 : 42}
             direction="up"
             variance={0.45}
-            parallax={0.6}
-            lift={64}
+            parallax={isMobile ? 0.3 : 0.6}
+            lift={isMobile ? 24 : 64}
             fade={0.45}
             dim={0.88}
             overlayColor="#000000"

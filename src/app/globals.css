@@ -32,7 +32,8 @@ body {
 }
 
 /* Lenis Smooth Scroll Styles (Match SoHub Studio) */
-html.lenis, html.lenis body {
+html.lenis,
+html.lenis body {
   height: auto;
 }
 
@@ -47,15 +48,19 @@ html {
   scroll-snap-type: y proximity;
 }
 
-html, body {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+html,
+body {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
   overflow-x: hidden;
   max-width: 100vw;
   -webkit-tap-highlight-color: transparent;
 }
 
-section, main {
+section,
+main {
   scroll-snap-align: start;
   scroll-snap-stop: normal;
 }

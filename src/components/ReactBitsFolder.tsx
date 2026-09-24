@@ -20,6 +20,7 @@ interface ReactBitsFolderWrapperProps {
 
 export const ReactBitsFolderWrapper: React.FC<ReactBitsFolderWrapperProps> = ({ items, onFolderOpen }) => {
   const [isMobile, setIsMobile] = React.useState(false);
+  const [isOpen, setIsOpen] = React.useState(false);
 
   React.useEffect(() => {
     const checkMobile = () => {
@@ -29,6 +30,10 @@ export const ReactBitsFolderWrapper: React.FC<ReactBitsFolderWrapperProps> = ({ 
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
+
+  // Scaled a little smaller after opening ONLY for mobile device UIs (360x800)
+  // Desktop remains strictly 1.3
+  const folderSize = isMobile ? (isOpen ? 0.78 : 0.95) : 1.3;
 
   // Render complete review card for each paper in official ReactBits <Folder />
   const folderPapers = items.slice(0, 5).map((item) => (
@@ -73,14 +78,15 @@ export const ReactBitsFolderWrapper: React.FC<ReactBitsFolderWrapperProps> = ({ 
 
   return (
     <div className="w-full max-w-5xl mx-auto flex flex-col items-center justify-center select-none pt-4 sm:pt-12 pb-4 sm:pb-12">
-      {/* Official ReactBits <Folder /> positioned 20% upwards */}
-      <div className="relative flex flex-col items-center justify-center min-h-[380px] sm:min-h-[440px] w-full pt-4 sm:pt-8 -translate-y-10 sm:-translate-y-16">
+      {/* Official ReactBits <Folder /> */}
+      <div className="relative flex flex-col items-center justify-center min-h-[390px] sm:min-h-[440px] w-full pt-4 sm:pt-8 -translate-y-8 sm:-translate-y-16">
         <Folder
           color="#0d0f14"
-          size={isMobile ? 0.98 : 1.3}
+          size={folderSize}
           items={folderPapers}
-          onToggle={(isOpen) => {
-            if (isOpen && onFolderOpen) {
+          onToggle={(opened) => {
+            setIsOpen(opened);
+            if (opened && onFolderOpen) {
               onFolderOpen();
             }
           }}
